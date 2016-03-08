@@ -2,7 +2,7 @@ package person;
 public enum Gender {
     Female("Ms"),
     Male("Mr");
-    private String gender;
+    public String gender;
     Gender(String gender) {
         this.gender = gender;
     }
@@ -11,4 +11,10 @@ public enum Gender {
     public String toString() {
         return gender;
     }
+
+    public boolean isSameGender(String gender){
+        return this.gender == gender;
+    }
+
+
 }

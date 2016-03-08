@@ -12,4 +12,6 @@ public class Address {
        return country;
     }
 
+    public String getAddress() {return city+", "+state+", "+country;
+    }
 }
