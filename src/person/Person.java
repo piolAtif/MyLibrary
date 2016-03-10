@@ -14,11 +14,11 @@ public class Person {
     };
 
     public String getNameWithForenameFirst(){
-        return gender.toString()+ " "+ name.forenameFirst();
+        return String.format("%s %s",gender.toString(),name.forenameFirst());
     }
 
     public String getNameWithSurnameFirst(){
-        return gender.toString()+" "+name.surnameFirst();
+        return String.format("%s %s",gender.toString(),name.surnameFirst());
     }
 
     public String getNameAndCountryWithForenameFirst(){
@@ -41,20 +41,22 @@ public class Person {
         return gender.toString()+" "+name.forenameFirst()+", "+address.getCountry()+", "+age.getAge();
     }
 
-    public void getNameAgeAndCountryWithLDA(String command) {
-        String countryAbbr = "-"+(address.getCountry().substring(0, 3).toLowerCase());
+    public String getLDAWithAgeAndName(){
+        if (age.isLegalDrivingAge())
+            return String.format("%s, %s",getNameWithForenameFirst(),age.getAge());
+        return "";
+    }
 
+    public String getAgeWithLDAForASpecificCountry(String command) {
+        String countryAbbr = "-"+(address.getCountry().substring(0, 3).toLowerCase());
             if(countryAbbr.equals(command)){
                 if (age.isLegalDrivingAge()) {
-                    System.out.println(gender.toString() + " " + name.forenameFirst()+", "+address.getCountry()+", "+age.getAge());
+                    return String.format("%s, %s, %s",name.forenameFirst(),address.getCountry(),age.getAge());
             }
         }
+        return "";
     }
 
-    public void getNameAgeWithLDA(){
-        if (age.isLegalDrivingAge())
-            System.out.println(gender.toString() + " " + name.forenameFirst()+", "+age.getAge());
-    }
 
     public String getCountry(){
         return address.getCountry();

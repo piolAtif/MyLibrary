@@ -32,7 +32,7 @@ public class Guests {
     }
 
     private Address setAddress(String city, String state, String country){
-        return new Address(city, state, country);
+        return new Address(city, state,country);
     }
 
 }

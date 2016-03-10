@@ -13,7 +13,7 @@ public enum Gender {
     }
 
     public boolean isSameGender(String gender){
-        return this.gender == gender;
+        return this.gender.equals(gender);
     }
 
 

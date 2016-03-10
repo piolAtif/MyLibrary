@@ -1,6 +1,8 @@
 package person;
 public class Address {
-    String city,state,country;
+    String city;
+    String state;
+    String country;
 
     public Address(String city, String state, String country) {
         this.city = city;
@@ -12,6 +14,6 @@ public class Address {
        return country;
     }
 
-    public String getAddress() {return city+", "+state+", "+country;
+    public String getAddress() {return String.format("%s, %s, %s",city,state,country);
     }
 }
